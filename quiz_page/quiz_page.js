@@ -31,13 +31,13 @@ const questions = [
     }
 ]
 
-const max = questions.length;
+const randomValue = questions.length;
 
 const index = (integer) => {
     return Math.floor(Math.random() * integer);
 };
 
-fetch(questions[index(max)].image)
+fetch(questions[index(randomValue)].image)
 .then(response => response.json())
 .then(data => {
     const img = document.createElement('img');
@@ -46,3 +46,21 @@ fetch(questions[index(max)].image)
     console.log(data);
 })
 .catch(err => console.log(err));
+
+switch (index) {
+    case 0:
+        button1 = questions[0].answers[0].text
+        button2 = questions[0].answers[1].text
+        button3 = questions[0].answers[2].text
+    break;
+    case 1:
+        button1 = questions[1].answers[0].text
+        button2 = questions[1].answers[1].text
+        button3 = questions[1].answers[2].text
+    break;
+    case 2:
+        button1 = questions[2].answers[0].text
+        button2 = questions[2].answers[1].text
+        button3 = questions[2].answers[2].text
+    break;
+}
