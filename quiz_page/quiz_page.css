@@ -18,12 +18,27 @@ nav img {
   width: 5rem;
 }
 
+main section {
+  display: grid;
+  place-items: center;
+}
+main section img {
+  width: 30rem;
+  max-width: 80%;
+}
+main ul {
+  text-align: center;
+}
 main ul li {
-  display: inline-flex;
-  margin-left: 13.5%;
+  display: inline-grid;
+  margin-top: 5rem;
+  grid-column-gap: 10rem;
 }
 main ul li button {
-  min-width: 260px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
   height: 80px;
   color: #FFFFFF;
   padding: 10px 20px;
@@ -32,4 +47,20 @@ main ul li button {
   cursor: pointer;
   border: none;
   background-color: #2F2F2F;
+}
+main ul li button.correct {
+  background-color: #00620A;
+}
+main ul li button.wrong {
+  background-color: #700000;
+}
+
+footer {
+  display: grid;
+  place-items: center;
+}
+footer div {
+  font: bold 2rem "Inter", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3rem;
 }/*# sourceMappingURL=quiz_page.css.map */

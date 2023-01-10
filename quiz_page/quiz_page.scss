@@ -25,12 +25,23 @@ nav {
 }
 
 main {
+    section {
+        display: grid;
+	    place-items: center;
+        img {
+            width: 30rem;
+            max-width: 80%;
+        }
+    }
     ul {
+        text-align: center;
         li {
-            display: inline-flex;
-            margin-left: 13.5%;
+            display: inline-grid;
+            margin-top: 5rem;
+            grid-column-gap: 10rem;
             button {
-                min-width: 260px;
+                width: fit-content;
+                padding: 1rem;
                 height:80px;
                 color: $color;
                 padding: 10px 20px;
@@ -39,7 +50,25 @@ main {
                 cursor: pointer;
                 border: none;
                 background-color: #2F2F2F;
+
+                &.correct {
+                    background-color: #00620A;
+                }
+
+                &.wrong {
+                    background-color: #700000;
+                }
             }
         }
+    }
+}
+
+footer {
+    display: grid;
+	place-items: center;
+    div {
+        font: bold 2rem 'Inter', sans-serif;
+        color: rgba(256, 256, 256, 50%);
+        margin-top: 3rem;
     }
 }
