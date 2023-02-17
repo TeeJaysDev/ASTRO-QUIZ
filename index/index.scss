@@ -22,6 +22,13 @@ nav {
         margin: 2rem;
         width: 5rem;
     }
+
+    @media only screen 
+    and (max-width: 425px) {
+        img {
+            width: 3rem; 
+        }
+    } 
 }
 
 .img {
@@ -32,6 +39,13 @@ nav {
     height: 100vh;
 }
 
+@media only screen 
+and (max-width: 768px) {
+    .img {
+        display: none;
+    }
+} 
+
 main {
     .title {
         margin: 8rem 0rem 0rem 8rem;
@@ -41,14 +55,26 @@ main {
             color: $color;
         }
 
+        @media only screen 
+        and (max-width: 425px) {
+            h1 {
+                font-size: 3rem;
+            }
+        } 
+
         h2 {
             font: bold 2rem 'Inter', sans-serif;
             color: rgba(256, 256, 256, 50%);
         }
-
+        @media only screen 
+        and (max-width: 425px) {
+            h2 {
+              font-size: 1.2rem;
+            }
+        } 
 
         button {
-            min-width: 260px;
+            min-width: 200px;
             height:80px;
             color: $color;
             padding: 10px 20px;
@@ -81,8 +107,14 @@ main {
                 right: -40px;
                 transition: 0.4s;
             }
-        }
+        } 
     }
+    @media only screen 
+        and (max-width: 425px) {
+            .title {
+                margin: 1rem 0rem 0rem 2rem; 
+        }
+    } 
 }
 
 footer {
@@ -90,4 +122,10 @@ footer {
         width: 7rem;
         margin: 10rem 0rem auto 2rem;
     }
+    @media only screen 
+    and (max-width: 425px) {
+        img {
+            width: 3rem;
+        }
+    } 
 }

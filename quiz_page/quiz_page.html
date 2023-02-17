@@ -16,27 +16,35 @@
         </a>
     </nav>
     <main id="main">
-        <section id="section"></section>
-        <ul>
-            <li>
-                <button class="btn correct">
-                    <p></p>
-                </button>
-            </li>
-            <li>
-                <button class="btn correct">
-                    <p></p>
-                </button>
-            </li>
-            <li>
-                <button class="btn correct">
-                    <p></p>
-                </button>
-            </li>
-        </ul>
+        <div id="quiz">
+            <section id="section">
+                <img id="img-quiz">
+            </section>
+            <ul>
+                <li>
+                    <button class="btn correct">
+                        <p></p>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn correct">
+                        <p></p>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn correct">
+                        <p></p>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id="quiz-end">
+            <h1>Quiz Score</h1>
+        </div>
     </main>
     <footer>
-        <div id="counter">1/10</div>
+        <div id="counter"></div>
+        <button id="gohome" onclick="document.location='/index/index.html'">Go home</button>
     </footer>
 </body>
 </html>

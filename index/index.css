@@ -18,6 +18,11 @@ nav img {
   margin: 2rem;
   width: 5rem;
 }
+@media only screen and (max-width: 425px) {
+  nav img {
+    width: 3rem;
+  }
+}
 
 .img {
   position: fixed;
@@ -27,6 +32,11 @@ nav img {
   height: 100vh;
 }
 
+@media only screen and (max-width: 768px) {
+  .img {
+    display: none;
+  }
+}
 main .title {
   margin: 8rem 0rem 0rem 8rem;
 }
@@ -34,12 +44,22 @@ main .title h1 {
   font: 900 5rem "Inter", sans-serif;
   color: #FFFFFF;
 }
+@media only screen and (max-width: 425px) {
+  main .title h1 {
+    font-size: 3rem;
+  }
+}
 main .title h2 {
   font: bold 2rem "Inter", sans-serif;
   color: rgba(255, 255, 255, 0.5);
 }
+@media only screen and (max-width: 425px) {
+  main .title h2 {
+    font-size: 1.2rem;
+  }
+}
 main .title button {
-  min-width: 260px;
+  min-width: 200px;
   height: 80px;
   color: #FFFFFF;
   padding: 10px 20px;
@@ -71,8 +91,18 @@ main .title button:after {
   right: -40px;
   transition: 0.4s;
 }
+@media only screen and (max-width: 425px) {
+  main .title {
+    margin: 1rem 0rem 0rem 2rem;
+  }
+}
 
 footer img {
   width: 7rem;
   margin: 10rem 0rem auto 2rem;
+}
+@media only screen and (max-width: 425px) {
+  footer img {
+    width: 3rem;
+  }
 }/*# sourceMappingURL=index.css.map */

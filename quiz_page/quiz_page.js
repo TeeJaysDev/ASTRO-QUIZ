@@ -1,10 +1,11 @@
-
 const section = document.getElementById('section');
 const button1 = document.getElementsByClassName('btn')[0];
 const button2 = document.getElementsByClassName('btn')[1];
 const button3 = document.getElementsByClassName('btn')[2];
+const img = document.querySelector('#img-quiz');
+const counter = document.querySelector('#counter');
 
-const questions = [
+let questions = [
     {
         image: 'https://images-api.nasa.gov/search?nasa_id=PIA00122',
         answers: [
@@ -31,36 +32,68 @@ const questions = [
     }
 ]
 
-const randomValue = questions.length;
+const qLen = questions.length
 
-const index = (integer) => {
-    return Math.floor(Math.random() * integer);
+let points = 0
+
+const verify = (status) => {
+    if(status){
+        points += 1;
+
+        renderQuestion(getRandomIndex())
+    }
+}
+
+const getRandomIndex = () => {
+    return questions.length === 0 ? null : Math.floor(Math.random() * qLen);
 };
 
-fetch(questions[index(randomValue)].image)
-.then(response => response.json())
-.then(data => {
-    const img = document.createElement('img');
-    img.src = data.collection.items[0].links[0].href;
-    section.appendChild(img);
-    console.log(data);
-})
-.catch(err => console.log(err));
-
-switch (index) {
-    case 0:
-        button1 = questions[0].answers[0].text
-        button2 = questions[0].answers[1].text
-        button3 = questions[0].answers[2].text
-    break;
-    case 1:
-        button1 = questions[1].answers[0].text
-        button2 = questions[1].answers[1].text
-        button3 = questions[1].answers[2].text
-    break;
-    case 2:
-        button1 = questions[2].answers[0].text
-        button2 = questions[2].answers[1].text
-        button3 = questions[2].answers[2].text
-    break;
+const renderImage = (index) => {
+    fetch(questions[index].image)
+    .then(response => response.json())
+    .then(data => {
+        img.src = data.collection.items[0].links[0].href;
+        console.log(data);
+    })
+    .catch(err => console.log(err));
 }
+
+const renderButtons = (index) => {
+    questions[index].answers.map((item, i) => {
+        const btn = document.getElementsByClassName('btn')[i];
+        if(btn){
+            btn.innerHTML=item.text
+            btn.onclick = () => verify(item.correct)
+        }
+    })
+}
+
+const renderCounter = () => {
+    counter.innerText = `${points}/${qLen}`
+}
+
+const start = () => {
+    document.querySelector('#quiz-end').style.display = 'none';
+    document.querySelector('footer').style.display = 'none';
+}
+
+const finish = () => {
+    document.querySelector('#quiz').style.display = 'none';
+    renderCounter();
+    document.querySelector('#quiz-end').style.display = 'grid';
+    document.querySelector('footer').style.display = 'grid';
+}
+
+const renderQuestion = (index) => {
+    renderCounter();
+    if(index === null){
+        finish();
+    }else{
+        start();
+        renderImage(index);
+        renderButtons(index);
+        questions = questions.filter((_, i) => i !== index)
+    }
+}
+
+renderQuestion(getRandomIndex())

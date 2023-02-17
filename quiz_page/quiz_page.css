@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap");
 * {
   margin: 0;
@@ -18,24 +19,23 @@ nav img {
   width: 5rem;
 }
 
-main section {
+main #quiz section {
   display: grid;
   place-items: center;
 }
-main section img {
+main #quiz section img {
   width: 30rem;
   max-width: 80%;
 }
-main ul {
+main #quiz ul {
   text-align: center;
 }
-main ul li {
+main #quiz ul li {
   display: inline-grid;
   margin-top: 5rem;
   grid-column-gap: 10rem;
 }
-main ul li button {
-  width: -webkit-fit-content;
+main #quiz ul li button {
   width: -moz-fit-content;
   width: fit-content;
   padding: 1rem;
@@ -46,13 +46,18 @@ main ul li button {
   font-weight: bold;
   cursor: pointer;
   border: none;
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
 }
-main ul li button.correct {
-  background-color: #00620A;
+main #quiz ul li button:hover {
+  filter: brightness(200%);
 }
-main ul li button.wrong {
-  background-color: #700000;
+main #quiz-end h1 {
+  font: 900 3.5rem "Inter", sans-serif;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  margin-top: 10rem;
+  margin-bottom: -2rem;
 }
 
 footer {
@@ -63,4 +68,37 @@ footer div {
   font: bold 2rem "Inter", sans-serif;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 3rem;
+}
+footer button {
+  min-width: 260px;
+  height: 80px;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  overflow: hidden;
+  border: none;
+  background-color: #2F2F2F;
+  margin-top: 1rem;
+}
+footer button:hover {
+  padding-right: 48px;
+  padding-left: 16px;
+}
+footer button:hover:after {
+  opacity: 1;
+  right: 20px;
+}
+footer button:after {
+  content: "⟶";
+  position: absolute;
+  opacity: 0;
+  font-size: 2rem;
+  line-height: 80px;
+  top: 0;
+  right: -40px;
+  transition: 0.4s;
 }/*# sourceMappingURL=quiz_page.css.map */

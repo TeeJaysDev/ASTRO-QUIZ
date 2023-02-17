@@ -25,40 +25,49 @@ nav {
 }
 
 main {
-    section {
-        display: grid;
-	    place-items: center;
-        img {
-            width: 30rem;
-            max-width: 80%;
+    #quiz {
+        // display: none;
+
+        section {
+            display: grid;
+            place-items: center;
+            img {
+                width: 30rem;
+                max-width: 80%;
+            }
         }
-    }
-    ul {
-        text-align: center;
-        li {
-            display: inline-grid;
-            margin-top: 5rem;
-            grid-column-gap: 10rem;
-            button {
-                width: fit-content;
-                padding: 1rem;
-                height:80px;
-                color: $color;
-                padding: 10px 20px;
-                font-size: 1.5rem;
-                font-weight: bold;
-                cursor: pointer;
-                border: none;
-                background-color: #2F2F2F;
-
-                &.correct {
-                    background-color: #00620A;
-                }
-
-                &.wrong {
-                    background-color: #700000;
+        ul {
+            text-align: center;
+            li {
+                display: inline-grid;
+                margin-top: 5rem;
+                grid-column-gap: 10rem;
+                button {
+                    width: fit-content;
+                    padding: 1rem;
+                    height:80px;
+                    color: $color;
+                    padding: 10px 20px;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    border: none;
+                    background-color: #2f2f2f;
+                    &:hover {
+                        filter: brightness(200%);
+                    }
                 }
             }
+        }
+    }
+    #quiz-end {
+        h1 {
+            font: 900 3.5rem 'Inter', sans-serif;
+            color: $color;
+            display: grid;
+            place-items: center;
+            margin-top: 10rem;
+            margin-bottom: -2rem;
         }
     }
 }
@@ -70,5 +79,40 @@ footer {
         font: bold 2rem 'Inter', sans-serif;
         color: rgba(256, 256, 256, 50%);
         margin-top: 3rem;
+    }
+    button {
+        min-width: 260px;
+        height:80px;
+        color: $color;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+        overflow: hidden;
+        border: none;
+        background-color: #2F2F2F;
+        margin-top: 1rem;
+    
+        &:hover {
+            padding-right: 48px;
+            padding-left:16px;
+        }
+        
+        &:hover:after {
+            opacity: 1;
+            right: 20px;
+        }
+        &:after {
+            content: "\27F6";
+            position: absolute;
+            opacity: 0;
+            font-size: 2rem;
+            line-height: 80px;
+            top: 0;
+            right: -40px;
+            transition: 0.4s;
+        }
     }
 }
