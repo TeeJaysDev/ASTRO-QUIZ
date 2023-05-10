@@ -32,17 +32,17 @@ let questions = [
     }
 ]
 
-const qLen = questions.length
+const qLen = questions.length;
 
-let points = 0
+let points = 0;
 
 const verify = (status) => {
-    if(status){
+    if(status) {
         points += 1;
-
         renderQuestion(getRandomIndex())
-    }
+    }    
 }
+
 
 const getRandomIndex = () => {
     return questions.length === 0 ? null : Math.floor(Math.random() * qLen);
@@ -62,7 +62,7 @@ const renderButtons = (index) => {
     questions[index].answers.map((item, i) => {
         const btn = document.getElementsByClassName('btn')[i];
         if(btn){
-            btn.innerHTML=item.text
+            btn.innerHTML = item.text
             btn.onclick = () => verify(item.correct)
         }
     })
