@@ -40,12 +40,14 @@ const verify = (status) => {
     if(status) {
         points += 1;
         renderQuestion(getRandomIndex())
-    }    
+    } else {
+        renderQuestion(getRandomIndex())
+    }
 }
 
 
 const getRandomIndex = () => {
-    return questions.length === 0 ? null : Math.floor(Math.random() * qLen);
+    return questions.length === 0 ? AbortController : Math.floor(Math.random() * qLen);
 };
 
 const renderImage = (index) => {
@@ -69,7 +71,11 @@ const renderButtons = (index) => {
 }
 
 const renderCounter = () => {
-    counter.innerText = `${points}/${qLen}`
+    if (points<=qLen) {
+        counter.innerText = `${points}/${qLen}`
+    } else {
+        counter.innerText = `${qLen}/${qLen}`
+    }
 }
 
 const start = () => {
